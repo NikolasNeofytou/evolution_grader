@@ -20,6 +20,9 @@ def test_api_grade_flow():
     assert rj.status_code == 200
     assert rj.json()["submission_id"] != submission_id
 
+    lb = client.get("/leaderboard/sum").json()
+    assert lb and lb[0]["submission_id"] == submission_id
+
 
 def test_api_exam_mode():
     client = TestClient(app)

@@ -27,3 +27,8 @@ async def rejudge(submission_id: str):
 @app.get("/analytics")
 async def analytics():
     return orchestrator.analytics()
+
+
+@app.get("/leaderboard/{problem_id}")
+async def leaderboard(problem_id: str):
+    return orchestrator.leaderboard(problem_id)

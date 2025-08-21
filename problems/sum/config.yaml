@@ -17,6 +17,8 @@ limits:
   memory_mb: 256
   procs: 1
   files: 64
+performance:
+  max_ms: 100
 grading:
   correctness: 80
   memory_safety: 10

@@ -32,10 +32,10 @@ This document tracks the phased build of Evolution Grader.
 - [x] Optional lockdown browser
 
 ## Phase 6 — Nice-to-haves
-- [ ] Performance envelopes and complexity checks
-- [ ] Opt-in leaderboard
-- [ ] Additional language support (C, Python, MATLAB)
-- [ ] Project-based autograding (CMake, multi-file)
+- [x] Performance envelopes and complexity checks
+- [x] Opt-in leaderboard
+- [x] Additional language support (C, Python, MATLAB)
+- [x] Project-based autograding (CMake, multi-file)
 
 Each task starts as unchecked and will be updated as work progresses.
 

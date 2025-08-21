@@ -58,6 +58,13 @@ Evolution Grader is a modern C++ autograder designed to act as a tutor rather th
 - Exam mode toggle that runs only hidden tests and records the mode in results
 - Placeholder hook for integrating an external lockdown browser
 
+## Phase 6 Nice-to-haves
+
+- Performance envelopes that record test runtime and flag slow submissions
+- Opt-in leaderboard tracking top scores per problem
+- Experimental Python support and multi-file C++ project builds
+- Scaffold for extending to additional languages and project-based autograding
+
 ## Grading Rubric (template)
 
 | Dimension                            | Typical Weight |

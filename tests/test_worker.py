@@ -8,3 +8,5 @@ def test_grade_problem_returns_results():
     assert names == {"sum_visible", "sum_hidden", "sum_property"}
     assert "asan_ubsan" in results["sanitizers"]
     assert "hints" in results
+    assert "performance" in results
+    assert results["score"] == 100

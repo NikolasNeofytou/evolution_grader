@@ -19,6 +19,7 @@ class Orchestrator:
         self.jobs: Dict[str, dict] = {}
         self.meta: Dict[str, str] = {}  # submission_id -> problem_id
         self.analytics_data = {"total": 0, "compile_fail": 0, "test_fail": 0}
+        self.leaders: Dict[str, list] = {}
 
     def submit(self, problem_id: str, exam_mode: bool = False) -> str:
         submission_id = str(uuid.uuid4())
@@ -35,6 +36,11 @@ class Orchestrator:
             results["similarity"] = {"score": similarity_score}
             artifact = ARTIFACTS / f"{submission_id}.json"
             artifact.write_text(json.dumps(results))
+            score = results.get("score", 0)
+            board = self.leaders.setdefault(problem_id, [])
+            board.append({"submission_id": submission_id, "score": score})
+            board.sort(key=lambda x: x["score"], reverse=True)
+            self.leaders[problem_id] = board[:10]
             self.analytics_data["total"] += 1
             if not results.get("compile", {}).get("ok", False):
                 self.analytics_data["compile_fail"] += 1
@@ -65,6 +71,9 @@ class Orchestrator:
 
     def analytics(self):
         return self.analytics_data
+
+    def leaderboard(self, problem_id: str):
+        return self.leaders.get(problem_id, [])
 
 
 # create a global orchestrator instance
