@@ -5,8 +5,8 @@ app = FastAPI()
 
 
 @app.post("/grade/{problem_id}")
-async def grade(problem_id: str):
-    submission_id = orchestrator.submit(problem_id)
+async def grade(problem_id: str, exam: bool = False):
+    submission_id = orchestrator.submit(problem_id, exam_mode=exam)
     return {"submission_id": submission_id}
 
 

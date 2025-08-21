@@ -52,6 +52,12 @@ Evolution Grader is a modern C++ autograder designed to act as a tutor rather th
 - JSON artifact store and basic analytics on submission outcomes
 - Retry and rejudge support to rebuild results on demand
 
+## Phase 5 Integrity & Exam Mode
+
+- Naive similarity checker to flag likely copied submissions for TA review
+- Exam mode toggle that runs only hidden tests and records the mode in results
+- Placeholder hook for integrating an external lockdown browser
+
 ## Grading Rubric (template)
 
 | Dimension                            | Typical Weight |

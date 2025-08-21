@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Dict
 
 from .worker import grade_problem
+from .similarity import checker
 
 ROOT = Path(__file__).resolve().parent.parent
 ARTIFACTS = ROOT / "artifacts"
@@ -19,15 +20,19 @@ class Orchestrator:
         self.meta: Dict[str, str] = {}  # submission_id -> problem_id
         self.analytics_data = {"total": 0, "compile_fail": 0, "test_fail": 0}
 
-    def submit(self, problem_id: str) -> str:
+    def submit(self, problem_id: str, exam_mode: bool = False) -> str:
         submission_id = str(uuid.uuid4())
 
         def task():
             results = None
             for _ in range(self.retries + 1):
-                results = grade_problem(problem_id)
+                results = grade_problem(problem_id, exam_mode=exam_mode)
                 if results.get("compile", {}).get("ok", False):
                     break
+            code = (ROOT / "problems" / problem_id / "main.cpp").read_text()
+            similarity_score = checker.check(code)
+            checker.register(submission_id, code)
+            results["similarity"] = {"score": similarity_score}
             artifact = ARTIFACTS / f"{submission_id}.json"
             artifact.write_text(json.dumps(results))
             self.analytics_data["total"] += 1

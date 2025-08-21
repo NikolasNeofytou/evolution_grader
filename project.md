@@ -27,9 +27,9 @@ This document tracks the phased build of Evolution Grader.
 - [x] Instructor analytics and gradebook integration
 
 ## Phase 5 — Integrity & Exam Mode
-- [ ] MOSS/JPlag similarity detection with TA triage
-- [ ] Exam mode with frozen visible tests and stricter limits
-- [ ] Optional lockdown browser
+- [x] MOSS/JPlag similarity detection with TA triage
+- [x] Exam mode with frozen visible tests and stricter limits
+- [x] Optional lockdown browser
 
 ## Phase 6 — Nice-to-haves
 - [ ] Performance envelopes and complexity checks
