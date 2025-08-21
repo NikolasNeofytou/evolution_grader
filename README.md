@@ -40,6 +40,12 @@ Evolution Grader is a modern C++ autograder designed to act as a tutor rather th
 - Static analysis via `clang-tidy`, `clang-format`, and `cppcheck`
 - Aggregated `results.json` emitted for each submission
 
+## Phase 3 Learning Features
+
+- Property-based tests using RapidCheck for deeper correctness checks
+- Local CLI (`python -m grader.cli <problem>`) so students can run the same checks in Docker
+- Curated hint mapping that converts common compiler and sanitizer messages into plain-language tips
+
 ## Grading Rubric (template)
 
 | Dimension                            | Typical Weight |

@@ -3,6 +3,8 @@ import subprocess
 import tempfile
 from pathlib import Path
 
+import yaml
+
 ROOT = Path(__file__).resolve().parent.parent
 
 
@@ -16,7 +18,14 @@ def _compile(compiler, sources, output, extra=None):
     if extra:
         cmd.extend(extra)
     cmd.extend(str(s) for s in sources)
-    cmd.extend(["-lgtest", "-lgtest_main", "-pthread", "-o", str(output)])
+    cmd.extend([
+        "-lgtest",
+        "-lgtest_main",
+        "-lrapidcheck",
+        "-pthread",
+        "-o",
+        str(output),
+    ])
     return _run(cmd)
 
 
@@ -75,7 +84,7 @@ def grade_problem(problem_id: str):
             results["tests"] = tests
         exe_san = tmp / "tests_san"
         rc_san, log_san = _compile(
-            "clang++-18",
+            "g++",
             sources,
             exe_san,
             extra=["-fsanitize=address,undefined"],
@@ -83,7 +92,24 @@ def grade_problem(problem_id: str):
         san_ok = rc_san == 0
         results["sanitizers"] = {"asan_ubsan": {"ok": san_ok, "log": log_san}}
         results["static"] = _static_checks(str(main_cpp))
+        hint_logs = "\n".join([log, log_san])
+        results["hints"] = _collect_hints(hint_logs)
     return results
 
 
-__all__ = ["grade_problem"]
+HINTS_PATH = ROOT / "config" / "hints.yaml"
+if HINTS_PATH.exists():
+    HINTS = yaml.safe_load(HINTS_PATH.read_text()).get("hints", [])
+else:
+    HINTS = []
+
+
+def _collect_hints(logs: str):
+    tips = []
+    for entry in HINTS:
+        if entry["pattern"] in logs:
+            tips.append(entry["hint"])
+    return tips
+
+
+__all__ = ["grade_problem", "_collect_hints"]

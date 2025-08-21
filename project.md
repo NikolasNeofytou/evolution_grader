@@ -17,9 +17,9 @@ This document tracks the phased build of Evolution Grader.
 - [x] Minimal web UI for upload/status/results with diffs
 
 ## Phase 3 — Learning Features
-- [ ] Property-based tests with RapidCheck
-- [ ] Local CLI for prechecks
-- [ ] Curated hint mapping from errors to course notes
+- [x] Property-based tests with RapidCheck
+- [x] Local CLI for prechecks
+- [x] Curated hint mapping from errors to course notes
 
 ## Phase 4 — Scale & Reliability
 - [ ] Autoscale workers and artifact store

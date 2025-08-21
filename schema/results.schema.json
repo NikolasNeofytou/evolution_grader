@@ -80,6 +80,10 @@
       }
     },
     "total_score": {"type": "number"},
-    "feedback": {"type": "string"}
+    "feedback": {"type": "string"},
+    "hints": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
   }
 }

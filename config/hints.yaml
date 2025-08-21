@@ -1,0 +1,5 @@
+hints:
+  - pattern: "warning:"
+    hint: "Check your code for compiler warnings; consult the style guide."
+  - pattern: "AddressSanitizer"
+    hint: "A memory error was detected. Review pointer usage and bounds."

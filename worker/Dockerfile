@@ -13,6 +13,10 @@ RUN git clone --depth=1 https://github.com/google/googletest.git /tmp/gtest \
     && cmake -S /tmp/gtest -B /tmp/gtest/build \
     && cmake --build /tmp/gtest/build --target install
 
+RUN git clone --depth=1 https://github.com/emil-e/rapidcheck.git /tmp/rapidcheck \
+    && cmake -S /tmp/rapidcheck -B /tmp/rapidcheck/build \
+    && cmake --build /tmp/rapidcheck/build --target install
+
 WORKDIR /grader
 COPY runner/ /grader/runner/
 COPY problems/ /grader/problems/
