@@ -32,6 +32,14 @@ Evolution Grader is a modern C++ autograder designed to act as a tutor rather th
 - Default sanitizers: AddressSanitizer and UndefinedBehaviorSanitizer
 - Results schema: [schema/results.schema.json](schema/results.schema.json)
 
+## Phase 2 MVP Pipeline
+
+- FastAPI endpoint to submit code for grading
+- Worker that compiles with both `g++` and `clang++`, runs GoogleTest suites
+- AddressSanitizer/UndefinedBehaviorSanitizer build for memory safety checks
+- Static analysis via `clang-tidy`, `clang-format`, and `cppcheck`
+- Aggregated `results.json` emitted for each submission
+
 ## Grading Rubric (template)
 
 | Dimension                            | Typical Weight |

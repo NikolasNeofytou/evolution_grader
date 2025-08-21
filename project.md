@@ -9,12 +9,12 @@ This document tracks the phased build of Evolution Grader.
 - [x] Author first problems with visible and hidden tests
 
 ## Phase 2 — MVP Pipeline
-- [ ] Implement API & queue
-- [ ] Dockerized worker builds with clang++/g++
-- [ ] Run tests, ASan/UBSan, optional Valgrind
-- [ ] Run clang-tidy/format/cppcheck
-- [ ] Aggregate to results.json
-- [ ] Minimal web UI for upload/status/results with diffs
+- [x] Implement API & queue
+- [x] Dockerized worker builds with clang++/g++
+- [x] Run tests, ASan/UBSan, optional Valgrind
+- [x] Run clang-tidy/format/cppcheck
+- [x] Aggregate to results.json
+- [x] Minimal web UI for upload/status/results with diffs
 
 ## Phase 3 — Learning Features
 - [ ] Property-based tests with RapidCheck
