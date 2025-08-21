@@ -1,0 +1,41 @@
+# Project Plan
+
+This document tracks the phased build of Evolution Grader.
+
+## Phase 1 — Decisions & Skeleton
+- [ ] Choose sandbox (isolate or nsjail)
+- [ ] Define results.json schema
+- [ ] Set C++ standard and warning policy
+- [ ] Author first problems with visible and hidden tests
+
+## Phase 2 — MVP Pipeline
+- [ ] Implement API & queue
+- [ ] Dockerized worker builds with clang++/g++
+- [ ] Run tests, ASan/UBSan, optional Valgrind
+- [ ] Run clang-tidy/format/cppcheck
+- [ ] Aggregate to results.json
+- [ ] Minimal web UI for upload/status/results with diffs
+
+## Phase 3 — Learning Features
+- [ ] Property-based tests with RapidCheck
+- [ ] Local CLI for prechecks
+- [ ] Curated hint mapping from errors to course notes
+
+## Phase 4 — Scale & Reliability
+- [ ] Autoscale workers and artifact store
+- [ ] Retries and rejudge tools
+- [ ] Instructor analytics and gradebook integration
+
+## Phase 5 — Integrity & Exam Mode
+- [ ] MOSS/JPlag similarity detection with TA triage
+- [ ] Exam mode with frozen visible tests and stricter limits
+- [ ] Optional lockdown browser
+
+## Phase 6 — Nice-to-haves
+- [ ] Performance envelopes and complexity checks
+- [ ] Opt-in leaderboard
+- [ ] Additional language support (C, Python, MATLAB)
+- [ ] Project-based autograding (CMake, multi-file)
+
+Each task starts as unchecked and will be updated as work progresses.
+
