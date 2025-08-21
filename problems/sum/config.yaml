@@ -1,0 +1,22 @@
+id: sum
+title: "Sum of two integers"
+std: c++20
+compile:
+  - "clang++ -std=c++20 -O2 -pipe -Wall -Wextra -Wshadow -Wconversion -pedantic -o main main.cpp"
+test:
+  framework: gtest
+  visible: ["tests/sum_visible.cpp"]
+  hidden: ["tests/sum_hidden.cpp"]
+sanitizers: ["address", "undefined"]
+static:
+  clang_tidy_checks: "clang-analyzer-*,bugprone-*,performance-*,-clang-analyzer-cplusplus*"
+  cppcheck: "--enable=warning,style,performance,portability"
+limits:
+  time_ms: 1000
+  memory_mb: 256
+  procs: 1
+  files: 64
+grading:
+  correctness: 80
+  memory_safety: 10
+  style_static: 10

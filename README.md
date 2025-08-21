@@ -24,6 +24,14 @@ Evolution Grader is a modern C++ autograder designed to act as a tutor rather th
 - **Dynamic bug finding**: AddressSanitizer, UndefinedBehaviorSanitizer, and optional Valgrind.
 - **Static & style**: clang-tidy, cppcheck, and clang-format.
 
+## Phase 1 Defaults
+
+- Sandbox: isolate
+- C++ standard: C++20
+- Warning policy: `-Wall -Wextra -Werror -Wshadow -Wconversion -pedantic`
+- Default sanitizers: AddressSanitizer and UndefinedBehaviorSanitizer
+- Results schema: [schema/results.schema.json](schema/results.schema.json)
+
 ## Grading Rubric (template)
 
 | Dimension                            | Typical Weight |

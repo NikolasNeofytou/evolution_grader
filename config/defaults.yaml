@@ -1,0 +1,5 @@
+sandbox: isolate
+cpp:
+  standard: c++20
+  warnings: -Wall -Wextra -Werror -Wshadow -Wconversion -pedantic
+  sanitizers: -fsanitize=address,undefined

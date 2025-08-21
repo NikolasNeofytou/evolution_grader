@@ -3,10 +3,10 @@
 This document tracks the phased build of Evolution Grader.
 
 ## Phase 1 — Decisions & Skeleton
-- [ ] Choose sandbox (isolate or nsjail)
-- [ ] Define results.json schema
-- [ ] Set C++ standard and warning policy
-- [ ] Author first problems with visible and hidden tests
+- [x] Choose sandbox (isolate or nsjail)
+- [x] Define results.json schema
+- [x] Set C++ standard and warning policy
+- [x] Author first problems with visible and hidden tests
 
 ## Phase 2 — MVP Pipeline
 - [ ] Implement API & queue
