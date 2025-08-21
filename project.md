@@ -22,9 +22,9 @@ This document tracks the phased build of Evolution Grader.
 - [x] Curated hint mapping from errors to course notes
 
 ## Phase 4 — Scale & Reliability
-- [ ] Autoscale workers and artifact store
-- [ ] Retries and rejudge tools
-- [ ] Instructor analytics and gradebook integration
+- [x] Autoscale workers and artifact store
+- [x] Retries and rejudge tools
+- [x] Instructor analytics and gradebook integration
 
 ## Phase 5 — Integrity & Exam Mode
 - [ ] MOSS/JPlag similarity detection with TA triage

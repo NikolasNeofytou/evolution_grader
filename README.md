@@ -46,6 +46,12 @@ Evolution Grader is a modern C++ autograder designed to act as a tutor rather th
 - Local CLI (`python -m grader.cli <problem>`) so students can run the same checks in Docker
 - Curated hint mapping that converts common compiler and sanitizer messages into plain-language tips
 
+## Phase 4 Scale & Reliability
+
+- In-memory orchestrator with a thread pool to simulate autoscaling workers
+- JSON artifact store and basic analytics on submission outcomes
+- Retry and rejudge support to rebuild results on demand
+
 ## Grading Rubric (template)
 
 | Dimension                            | Typical Weight |
