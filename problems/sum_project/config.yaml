@@ -1,0 +1,9 @@
+id: sum_project
+sources: ["main.cpp", "helpers.cpp"]
+test:
+  visible: ["tests/sum_visible.cpp"]
+  hidden: ["tests/sum_hidden.cpp"]
+limits:
+  time_ms: 1000
+performance:
+  max_ms: 100

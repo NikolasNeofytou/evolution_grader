@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Results",
+  "type": "object",
+  "required": [
+    "submission_id",
+    "compile",
+    "tests",
+    "sanitizers",
+    "static",
+    "score_breakdown",
+    "total_score",
+    "feedback"
+  ],
+  "properties": {
+    "submission_id": {"type": "string"},
+    "compile": {
+      "type": "object",
+      "required": ["ok", "log"],
+      "properties": {
+        "ok": {"type": "boolean"},
+        "warnings": {"type": "integer"},
+        "log": {"type": "string"}
+      }
+    },
+    "tests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "status", "points", "max_points"],
+        "properties": {
+          "name": {"type": "string"},
+          "status": {"type": "string", "enum": ["passed", "failed"]},
+          "points": {"type": "number"},
+          "max_points": {"type": "number"},
+          "hint": {"type": "string"}
+        }
+      }
+    },
+    "sanitizers": {
+      "type": "object",
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "required": ["ok", "log"],
+          "properties": {
+            "ok": {"type": "boolean"},
+            "log": {"type": "string"}
+          }
+        }
+      }
+    },
+    "static": {
+      "type": "object",
+      "properties": {
+        "clang_tidy": {
+          "type": "object",
+          "properties": {
+            "issues": {"type": "integer"},
+            "summary": {
+              "type": "array",
+              "items": {"type": "string"}
+            }
+          }
+        },
+        "cppcheck": {
+          "type": "object",
+          "properties": {"issues": {"type": "integer"}}
+        },
+        "format": {
+          "type": "object",
+          "properties": {"diff_lines": {"type": "integer"}}
+        }
+      }
+    },
+    "score_breakdown": {
+      "type": "object",
+      "patternProperties": {
+        ".*": {"type": "number"}
+      }
+    },
+    "total_score": {"type": "number"},
+    "feedback": {"type": "string"},
+    "hints": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  }
+}
