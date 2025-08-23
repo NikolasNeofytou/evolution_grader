@@ -79,7 +79,7 @@ Evolution Grader is a modern C++ autograder designed to act as a tutor rather th
 
 - Execute code in isolate/nsjail with network disabled, seccomp, cgroup limits, and tmpfs sandboxes.
 - Pin toolchain versions and fix random seeds for consistent results.
-- Ship hidden tests at run time from a secure artifact store.
+- Ship hidden tests at runtime from a secure artifact store.
 - Regular similarity detection; results treated as signals and escalated for human review.
 
 ## UX That Supports Learning
